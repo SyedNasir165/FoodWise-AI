@@ -41,15 +41,15 @@ The application connects demand forecasting with preparation approval, meal logg
 
 ## One connected kitchen workflow
 
-| Stage | What a manager can do |
-| --- | --- |
-| **Observe** | Inspect cooked-food accounting, normalized waste findings, source records, and ingredient expiry alerts. |
-| **Prepare** | Forecast served food using expected attendance, compare historical uncertainty and temporal backtests, and simulate both surplus and shortage. |
-| **Approve** | Select preparation quantities, retain their assumptions and evidence, and save a manager-approved plan. |
-| **Account** | Log consumed food, untouched surplus, and plate waste against a plan, with backend mass-balance validation. |
-| **Review** | Document handling evidence, obtain manager approval, plan eligible same-day reuse, and record supported recovery routes. |
-| **Learn** | Compare plans with actual meals, inspect the reuse ledger, and distinguish recorded outcomes from projected prevention and theoretical energy. |
-| **Connect & ask** | Discover nearby public-directory candidates, review local weather, and ask the AI Kitchen Advisor about validated kitchen evidence. |
+| Stage             | What a manager can do                                                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Observe**       | Inspect cooked-food accounting, normalized waste findings, source records, and ingredient expiry alerts.                                       |
+| **Prepare**       | Forecast served food using expected attendance, compare historical uncertainty and temporal backtests, and simulate both surplus and shortage. |
+| **Approve**       | Select preparation quantities, retain their assumptions and evidence, and save a manager-approved plan.                                        |
+| **Account**       | Log consumed food, untouched surplus, and plate waste against a plan, with backend mass-balance validation.                                    |
+| **Review**        | Document handling evidence, obtain manager approval, plan eligible same-day reuse, and record supported recovery routes.                       |
+| **Learn**         | Compare plans with actual meals, inspect the reuse ledger, and distinguish recorded outcomes from projected prevention and theoretical energy. |
+| **Connect & ask** | Discover nearby public-directory candidates, review local weather, and ask the AI Kitchen Advisor about validated kitchen evidence.            |
 
 ### Accounting that follows the food
 
@@ -101,11 +101,11 @@ Screenshots are real browser captures from the practice workspace, not interface
 
 FoodWise combines local prediction with constrained, provider-assisted evidence:
 
-| Component | How it works | Decision boundary |
-| --- | --- | --- |
-| **Attendance-aware forecast** | Recency-weighted served food per diner, matching weekday/event history, descriptive ranges, and strictly earlier-date backtests. | Sparse history requires a manager-entered quantity. Historical ranges are not calibrated guarantees. |
-| **Local AI prep coach** | A NumPy ridge model learns served food per diner from prior services, calendar features, and declared events; rolling evaluations compare it with a recent baseline. | A model can lose to the baseline. Managers choose whether to apply a suggestion. Confirmed shortages block automatic application where demand may be censored. |
-| **AI Kitchen Advisor** | Groq by default, or Gemini, prioritizes validated evidence cards. The shared provider adapter also supports OpenRouter in Field station. The server supplies displayed facts, quantities, and source references. | Read only. AI cannot approve food, alter calculations, contact recipients, or execute a handoff. Invalid or unavailable provider output falls back to a deterministic local response. |
+| Component                     | How it works                                                                                                                                                                                                     | Decision boundary                                                                                                                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Attendance-aware forecast** | Recency-weighted served food per diner, matching weekday/event history, descriptive ranges, and strictly earlier-date backtests.                                                                                 | Sparse history requires a manager-entered quantity. Historical ranges are not calibrated guarantees.                                                                                  |
+| **Local AI prep coach**       | A NumPy ridge model learns served food per diner from prior services, calendar features, and declared events; rolling evaluations compare it with a recent baseline.                                             | A model can lose to the baseline. Managers choose whether to apply a suggestion. Confirmed shortages block automatic application where demand may be censored.                        |
+| **AI Kitchen Advisor**        | Groq by default, or Gemini, prioritizes validated evidence cards. The shared provider adapter also supports OpenRouter in Field station. The server supplies displayed facts, quantities, and source references. | Read only. AI cannot approve food, alter calculations, contact recipients, or execute a handoff. Invalid or unavailable provider output falls back to a deterministic local response. |
 
 Provider sharing is off until explicitly enabled. Raw questions, conversation history, staff names, private review notes, internal record IDs, and coordinates are excluded from provider payloads. Recognized topics, public directory facts, and aggregate evidence may be shared with the chosen provider. Keys stay on the backend.
 
@@ -146,11 +146,11 @@ Set-Location frontend
 npm.cmd run dev
 ```
 
-| Service | Local address |
-| --- | --- |
-| Application | [127.0.0.1:5173](http://127.0.0.1:5173) |
-| Interactive API documentation | [127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) |
-| Health endpoint | [127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health) |
+| Service                       | Local address                                                 |
+| ----------------------------- | ------------------------------------------------------------- |
+| Application                   | [127.0.0.1:5173](http://127.0.0.1:5173)                       |
+| Interactive API documentation | [127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)             |
+| Health endpoint               | [127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health) |
 
 SQLite initializes automatically on first launch and preserves records across restarts. No `.env` or API key is needed for the core workflow. Keep both terminals open; **Ctrl+C** stops each service. These addresses are local to your machine, not a hosted public deployment.
 
@@ -254,13 +254,13 @@ FoodWise-AI/
 
 Latest local publication checks, **9 October 2026**:
 
-| Check | Result |
-| --- | --- |
-| Backend domain and acceptance suite | **163 passed**, including 32 advisor cases |
-| Frontend TypeScript | **Passed** |
-| Frontend production build | **Passed** |
-| Connected judge scenario | **16 assertions passed** during video preparation |
-| Browser workflow | Executed locally; captures appear above |
+| Check                               | Result                                            |
+| ----------------------------------- | ------------------------------------------------- |
+| Backend domain and acceptance suite | **163 passed**, including 32 advisor cases        |
+| Frontend TypeScript                 | **Passed**                                        |
+| Frontend production build           | **Passed**                                        |
+| Connected judge scenario            | **16 assertions passed** during video preparation |
+| Browser workflow                    | Executed locally; captures appear above           |
 
 The badges summarize these recorded checks; they are not a hosted CI status. [Publication check details](docs/PUBLISH_VALIDATION.md) distinguish this run from earlier implementation and browser verification.
 
@@ -286,12 +286,12 @@ Tests use isolated temporary databases. They cover CSV rollback, earlier-only tr
 
 ## Documentation
 
-| Guide | Contents |
-| --- | --- |
-| [Judge walkthrough](docs/DEMO_WALKTHROUGH.md) | Setup, the connected workflow, CSV rehearsal, and reset |
-| [Research review](docs/RESEARCH_REVIEW.md) | Papers, open-source references, adopted methods, and limitations |
-| [AI Kitchen Advisor](docs/AI_KITCHEN_ADVISOR.md) | Configuration, evidence boundary, privacy, and API examples |
-| [Verification](docs/PUBLISH_VALIDATION.md) | Executed domain tests, frontend checks, and publication review |
+| Guide                                            | Contents                                                         |
+| ------------------------------------------------ | ---------------------------------------------------------------- |
+| [Judge walkthrough](docs/DEMO_WALKTHROUGH.md)    | Setup, the connected workflow, CSV rehearsal, and reset          |
+| [Research review](docs/RESEARCH_REVIEW.md)       | Papers, open-source references, adopted methods, and limitations |
+| [AI Kitchen Advisor](docs/AI_KITCHEN_ADVISOR.md) | Configuration, evidence boundary, privacy, and API examples      |
+| [Verification](docs/PUBLISH_VALIDATION.md)       | Executed domain tests, frontend checks, and publication review   |
 
 ## Contributing and attribution
 
@@ -301,10 +301,10 @@ Map data: **© OpenStreetMap contributors**, displayed through Leaflet; weather 
 
 This repository does not yet include a project license. Third-party libraries and reference materials retain their respective licenses and terms.
 
-<div align="center">
+## Project team
 
-**A little foresight. A lot less waste.**
+FoodWise AI was created by me and my teammates. My contributions included research, selecting the project idea, and providing the workflow for the project.
 
-[Tayab Ahamed](https://github.com/Tayab-Ahamed) · [Report an issue](https://github.com/Tayab-Ahamed/FoodWise-AI/issues)
+**My profile:** [Syed Nasir on LinkedIn](https://www.linkedin.com/in/syednasir21/) · [sd.nasirsyed21@gmail.com](mailto:sd.nasirsyed21@gmail.com)
 
-</div>
+**Teammates:** Ayaan Ahamd Khan · Tayab Ahamad N Naikar · Sekh Mohammad Farook
